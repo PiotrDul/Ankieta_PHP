@@ -39,14 +39,32 @@ class Answer{
         $sql="select description FROM answers where id = ".$id;
         $result=$conn->query($sql);
         if ($result['Num_Rows']==1){
-           
+           $row=$result->fetch_assoc();
+           foreach($row as $returnedAnswer){
+               return $returnedAnswer;
+        }
+        
+           } else {
+               return FALSE;
+               
+           }
+                
+        }
+    public static function deleteAnswerById($id){
+        $sql='DELETE FORM answers WHERE id='.$id;
+        $result = $conn->query($sql);
+        if ($result){
+            
+            return TRUE;
+        }else{
+            return FALSE;
+            
         }
     }
-    
-    public static function deleteAnswerById(){
-        
-    }
 }
+    
+    
+
 
 
 //Odpowiedź:
