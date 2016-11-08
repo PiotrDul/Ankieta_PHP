@@ -1,6 +1,7 @@
 <?php
 require_once("form.php");
 require_once("question.php");
+require_once("answer.php");
 
 $configDB = array(
     'servername' => "localhost",
@@ -20,5 +21,6 @@ if ($conn->connect_error) {
 //setting connections for Models
 Form::SetConnection($conn);
 Question::SetConnection($conn);
+Answer::SetConnection($conn);
 
 

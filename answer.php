@@ -1,9 +1,15 @@
 <?php
 
-class answer{
+class Answer{
+    
+    static private $conn;
+    
     private $answerId;
     private $answerText;
     
+    public static function SetConnection($newConnection){
+        self::$conn = $newConnection;
+    }
     
     public function changeAnswerText($newAnswerText){
         if (isset($newText)&& $newText!=""){
@@ -23,7 +29,7 @@ class answer{
     
     public static function createNewAnswer($conn, $answerText){
         $sql='insert into answers (description) VALUES ("'.$answerText.'")';
-        $result = $conn->query($sql);
+        $result = self::$conn->query($sql);
         if ($result){
             return mysql_insert_id();
         }
