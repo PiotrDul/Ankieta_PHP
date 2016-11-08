@@ -1,44 +1,44 @@
 <?php
 class form{
 
-private $id;
-private $name;
-private $questionList;
+    private $id;
+    private $name;
+    private $questionList;
 
-public function __construct() {
-   
-    
-} 
+    public function __construct() {
 
-public function getQuestionList(){
-    
-}
 
-public function getName(){
-    return $this->name;
-}
+    } 
 
-public function setName($newName){
-    if (isset($newName)&&$newName!=""){
-        $this->name = $newName;
+    public function getQuestionList(){
+
     }
-}
 
-public function saveChangesToDB(){
-    
-}   
+    public function getName(){
+        return $this->name;
+    }
 
-public static function createNewForm(){
-    
-}
+    public function setName($newName){
+        if (isset($newName)&&$newName!=""){
+            $this->name = $newName;
+        }
+    }
 
-public static function getFormById(){
-    
-}
+    public function saveChangesToDB(){
 
-public static function DeleteFormById(){
-    
-}
+    }   
+
+    public static function createNewForm(){
+
+    }
+
+    public static function getFormById(){
+
+    }
+
+    public static function DeleteFormById(){
+
+    }
 }
 
 
