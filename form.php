@@ -1,17 +1,23 @@
 <?php
-class form{
+class Form{
 
+    static private $conn;
+    
     private $id;
     private $name;
     private $questionList;
-
+    
     public function __construct() {
-
+        
 
     } 
 
+    public static function SetConnection($newConnection){
+        self::$conn = $newConnection;
+    }
+    
     public function getQuestionList(){
-
+        return $questionList[0] = 'pierwszy';
     }
 
     public function getName(){

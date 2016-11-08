@@ -1,15 +1,16 @@
 <?php
 
-class question{
+class Question{
     private $question;
-    
+    static private $conn;
     
     public function returnAllAnswers(){
         
     }
     
-    public function 
-    
+    public static function SetConnection($newConnection){
+        self::$conn = $newConnection;
+    }
     
 }
 /* 
