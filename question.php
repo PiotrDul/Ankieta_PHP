@@ -1,9 +1,9 @@
 <?php
 
-class question{
-    private $questionText;
-    private $questionId;
-    
+
+class Question{
+    private $question;
+    static private $conn;
     public function returnAllAnswers(){
         
     }
@@ -21,6 +21,12 @@ class question{
     
     public function saveQuestionToDB(){
         
+        
+    }
+        
+
+    public static function SetConnection($newConnection){
+        self::$conn = $newConnection;
     }
     
     public static function createNewQuestion(){
