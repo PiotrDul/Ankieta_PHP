@@ -1,16 +1,39 @@
 <?php
 
 class question{
-    private $question;
-    
+    private $questionText;
+    private $questionId;
     
     public function returnAllAnswers(){
         
     }
     
-    public function 
+    public function changeQuestionText($newText){
+        if (isset($newText)&& $newText!=""){
+            $this->qestionText=$newText;
+        }
+    }
     
+    public function getQuestionText(){
+        return $this->questionText;
+        
+    }
     
+    public function saveQuestionToDB(){
+        
+    }
+    
+    public static function createNewQuestion(){
+        
+    }
+    
+    public static function getQuestionById(){
+        
+    }
+    
+    public static function deleteQuestionById(){
+        
+    }
 }
 /* 
  Pytanie:
