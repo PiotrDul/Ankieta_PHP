@@ -8,7 +8,7 @@ class Form{
     private $questionList;
     
     public function __construct() {
-        
+        $this->id = -1;
 
     } 
 
@@ -16,8 +16,17 @@ class Form{
         self::$conn = $newConnection;
     }
     
+    public function testConn(){
+        return self::$conn;
+    }
+    
     public function getQuestionList(){
-        return $questionList[0] = 'pierwszy';
+        //tworze zaślepkę bo nie ma jeszcze pytań
+         $questionList[0] = 'Pierwsze pytanie';
+         $questionList[1] = 'Drugie pytanie';
+         $questionList[2] = 'Trzecie pytanie';
+         
+         return $questionList;
     }
 
     public function getName(){
@@ -25,13 +34,34 @@ class Form{
     }
 
     public function setName($newName){
-        if (isset($newName)&&$newName!=""){
+        if (isset($newName) && $newName!=""){
             $this->name = $newName;
         }
     }
 
     public function saveChangesToDB(){
-
+        
+        if($this->id == -1){
+            
+            $sql = "INSERT INTO Forms(id, name)
+                        VALUES ('', '$this->name')";
+            
+            $result = self::$conn->query($sql);
+            
+            if($result == true){
+                $this->id = self::$conn->insert_id;
+                return true;                 
+            }
+        } else{
+            $sql = "UPDATE Forms SET name=$this->name WHERE id=$this->id";
+            $result = self::$conn->query($sql);
+            
+            if($result){
+                return true;
+            }else {
+                return false;
+            }
+        }            
     }   
 
     public static function createNewForm(){

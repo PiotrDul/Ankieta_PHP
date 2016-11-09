@@ -7,7 +7,7 @@ $configDB = array(
     'servername' => "localhost",
     'username' => "test",
     'password' => "haslo",
-    'baseName' => "Twitter"
+    'baseName' => "ankieta"
 );
 
 // Tworzymy nowe połączenie

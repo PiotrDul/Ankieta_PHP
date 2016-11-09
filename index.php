@@ -4,4 +4,8 @@ include 'connection.php';
 
 $form = new Form();
 
-var_dump($form->getQuestionList());
+echo 'Ustawiam nową ankietę';
+
+$form->setName("Ankieta");
+
+var_dump($form->saveChangesToDB());
