@@ -3,7 +3,6 @@
 class Answer{
     
     static private $conn;
-    
     private $answerId;
     private $answerText;
     
@@ -24,15 +23,20 @@ class Answer{
     }
     
     public function saveAnswerToDB(){
-        
+         $sql='UPDATE  answers SET description= "'.  $this->answerText.'"  WHERE id='.$this->answerId.')';
+         $result = self::$conn->query($sql);
+        if ($result){
+            return mysql_insert_id();
+        }
     }
     
-    public static function createNewAnswer($conn, $answerText){
-        $sql='insert into answers (description) VALUES ("'.$answerText.'")';
+    public static function createNewAnswer($answerText){
+            $sql='insert into answers (description) VALUES ("'.$answerText.'")';
         $result = self::$conn->query($sql);
         if ($result){
             return mysql_insert_id();
         }
+       
     }
     
     public static function getAnswerById($conn, $id){
